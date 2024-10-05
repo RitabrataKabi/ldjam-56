@@ -884,13 +884,13 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: 9a77337a-00e5-4ceb-b146-c4b39cb4eec3
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: ldjam-56
+  organizationId: ritabratakabi
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

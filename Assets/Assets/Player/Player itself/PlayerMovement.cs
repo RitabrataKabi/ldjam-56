@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = transform.forward * speed * input.y + transform.right * speed * input.x + Vector3.up * rb.velocity.y;
+        rb.velocity = Time.deltaTime * (transform.forward * speed * input.y + transform.right * speed * input.x + Vector3.up * rb.velocity.y);
         print(rb.velocity);
     }
 }

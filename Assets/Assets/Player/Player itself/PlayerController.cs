@@ -5,12 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public Transform spawnPoint;
+    public AudioSource source;
+    public AudioClip timeTickerClip, chaseClip;
 
     public Rigidbody triggerAPencilRb;
 
+    void Awake
+    ()
+    {
+    NotificationManager.Instance.ClearList("PlayerChaseAI");
+    }
+
     private void Start() {
-        transform.position = spawnPoint.position;
+
+        source.clip = timeTickerClip;
+        source.loop = true;
+        source.Play();
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -26,16 +36,15 @@ public class PlayerController : MonoBehaviour
         if(other.CompareTag("TriggerA"))
         {
             triggerAPencilRb.AddForce(-Vector3.forward * 160f, ForceMode.Impulse);
+            other.GetComponent<AudioSource>().Play();
         }
 
         if(other.CompareTag("TriggerB"))
         {
             NotificationManager.Instance.SendNotification("Chase", "PlayerChaseAI");
-        }
-
-        if(other.CompareTag("TriggerC"))
-        {
-            NotificationManager.Instance.SendNotification("Marble", "Marbles");
+            source.clip = chaseClip;
+            source.loop = true;
+            source.Play();
         }
     }
     

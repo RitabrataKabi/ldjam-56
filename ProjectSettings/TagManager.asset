@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Navmesh
   - shot
+  - TriggerA
+  - TriggerB
+  - Enemy
+  - TriggerC
   layers:
   - Default
   - TransparentFX
@@ -13,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - NavMesh
   - 
   - 
   - 

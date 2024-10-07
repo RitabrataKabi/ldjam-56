@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
     private Controls controls;
     public float mouseSensitivity = 100f;
-    public Transform playerBody;
+    public Transform  orientation;
 
     void OnEnable()
     {
@@ -28,6 +26,10 @@ public class CameraMovement : MonoBehaviour
     void LateUpdate()
     {
         float mouseX = controls.Camera.Delta.ReadValue<Vector2>().x * mouseSensitivity;
-        playerBody.Rotate(Vector3.up * mouseX * Time.deltaTime);
+
+        yRot += mouseX;
+
+        transform.localRotation = Quaternion.Euler(transform.rotation.x, yRot, 0f);
+        orientation.Rotate(Vector3.up * mouseX);
     }
 }
